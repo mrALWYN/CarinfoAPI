@@ -1,0 +1,95 @@
+<!-- CarSearch/templates/SearchAPI/car_details.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+            color: #343a40; /* Dark text color */
+        }
+        .card {
+            border: none; /* Remove border from card */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            transition: box-shadow 0.3s ease; /* Smooth transition */
+            background: linear-gradient(to right, #ffffff, #f0f0f0); /* Gradient background */
+        }
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+        .back-button {
+            margin-top: 20px;
+            transition: transform 0.3s ease; /* Smooth transition for button */
+            background-color: #007bff; /* Blue button background color */
+            border-color: #007bff; /* Blue button border color */
+            color: #fff; /* White text color */
+        }
+        .back-button:hover {
+            transform: translateY(-5px); /* Move button up on hover */
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3; /* Darker border color on hover */
+        }
+        h1 {
+            color: #007bff; /* Blue header color */
+            margin-bottom: 30px; /* Add spacing below header */
+        }
+        .card-text {
+            margin-bottom: 15px; /* Add spacing between card text */
+        }
+        .btn {
+            transition: transform 0.3s ease; /* Smooth transition for button */
+        }
+        .btn:hover {
+            transform: scale(1.05); /* Scale button on hover */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">CarSearch</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-center">Car Details</h1>
+    <div class="card p-4">
+        <h5 class="card-title text-center mb-4">{{ car_details.name }} {{ car_details.model }}</h5>
+        <p class="card-text"><strong>Year:</strong> {{ car_details.year }}</p>
+        <p class="card-text"><strong>Mileage:</strong> {{ car_details.mileage }}</p>
+        <p class="card-text"><strong>Price:</strong> {{ car_details.price }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ car_details.description }}</p>
+        <p class="card-text"><strong>Features:</strong> {{ car_details.features }}</p>
+        <!-- Back button to navigate back to search page -->
+        <a href="{% url 'search_car' %}" class="btn btn-primary btn-block back-button">Back to Search</a>
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
